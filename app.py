@@ -2,10 +2,7 @@ import pandas as pd
 import plotly.express as px
 from dash import Dash, html, dcc
 
-
-# ==========================================================
 # 1. CARREGAMENTO E TRATAMENTO DOS DADOS
-# ==========================================================
 
 df = pd.read_csv('ecommerce_estatistica.csv')
 
@@ -16,10 +13,7 @@ df['Gênero'] = df['Gênero'].replace({
     'Unissex': 'Sem gênero'
 })
 
-
-# ==========================================================
 # 2. CRIAÇÃO DOS GRÁFICOS
-# ==========================================================
 
 # Gráfico 1 - Histograma de Preços
 def cria_histograma(df):
@@ -160,9 +154,7 @@ def cria_regressao(df):
     return fig
 
 
-# ==========================================================
 # 3. CRIAÇÃO DO DASHBOARD
-# ==========================================================
 
 def cria_app():
 
@@ -218,16 +210,11 @@ def cria_app():
         dcc.Graph(figure=fig7)
 
     ])
-
     return app
 
-
-# ==========================================================
 # 4. EXECUÇÃO DA APLICAÇÃO
-# ==========================================================
 
 if __name__ == '__main__':
-
     app = cria_app()
-
     app.run(debug=True, port=8050)
+    
