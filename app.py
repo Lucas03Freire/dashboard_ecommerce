@@ -89,6 +89,7 @@ def cria_barras_marcas(df):
 
 # Gráfico 5 - Pizza por Gênero
 def cria_pizza_genero(df):
+    
     genero = df['Gênero'].value_counts().reset_index()
     genero.columns = ['Gênero', 'Quantidade']
 
@@ -102,6 +103,7 @@ def cria_pizza_genero(df):
 
 # Gráfico 6 - Densidade das Notas
 def cria_densidade(df):
+    
     fig = px.histogram(
         df,
         x='Nota',
@@ -138,6 +140,7 @@ def cria_regressao(df):
 # 3. CRIAÇÃO DO DASHBOARD
 
 def cria_app():
+    
     app = Dash(__name__)
 
     # Cria os gráficos
@@ -151,7 +154,6 @@ def cria_app():
 
     # Layout do Dashboard
     app.layout = html.Div([
-
         html.H1(
             'Dashboard de Análise de E-commerce',
             style={
@@ -196,4 +198,3 @@ def cria_app():
 if __name__ == '__main__':
     app = cria_app()
     app.run(debug=True, port=8050)
-
